@@ -1,0 +1,12 @@
+before_install:
+- "sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng"
+before_script:
+  - chmod +x ./deploy.sh
+script:
+- mkdir build
+- pdflatex -output-directory build Statuts.tex
+after_success:
+  - ./deploy.sh
+env:
+  global:
+    secure: MU9WzS62UnAt/JUPSudZWuJF0iKH6H75I31W9X5QiNKTvUZL7gN4lN26R8rfk/gtOEq0THDMhiY/k7iVkmNLc+CKyN76UrQNIcIM0pJqZCb0ziToqFya47VNIX3XyrDjXoWDk5C5L+ayKrOWRtbzu80WcwucbdyMctSXO8vS7KpVU6BG1tGNaDMRjKrB0NY8GFhx0hJuoIasJhlLZhRQIXJP25SOTq4Oqcb665X/OTiJmdN/KG97ot32vj4e27ahgyv0CGU+483sanS4JDnp5MKu0noYndjzkyyle9qqlBkxCcowrH+EogFu6Vt9nLM8Yh9Ws2d53ViJfiCMre0SbaL/jGLZ1fQhJ0k1e2ITVUXBfBYJ2Buw52awb3AsqVqMjQfgf3ZlfngtvfVZcMz6y/HFw3QSPex+5yDyz3YoFsYASZvmxncLLRrkfwt0DAy4gOuxrcpjcQHSUh+oF2OXMRJT6fU4Upf8TcSUIagWfBeSuw1S7Oj3I7guYj9nQ8Guas0b3PV3v61Be8TzwWz0JCdJvP3WbJdA7IZlpTxZR95RBHrjEWxX/FZ/PUGX8W7gMYaz7fiZibKz5E7jU06Z2R84whsAT1/2Nxoa2UoZNTOBskeJxfKScLW6eM0PCAcVF6OQ8Rn33eRJiUuM3f5UudKxL/Z9J+oSa1eLTwh+bl8=
