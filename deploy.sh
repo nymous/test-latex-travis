@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 echo "Starting deployment"
 echo "Target: gh-pages branch"
 
