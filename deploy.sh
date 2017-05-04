@@ -17,8 +17,7 @@ echo "Removing old static content"
 git rm -rf . || exit 1
 
 echo "Copying dist content to root"
-cp -r $DIST_DIRECTORY/* . || exit 1
-cp $DIST_DIRECTORY/.gitignore . || exit 1
+cp -r $DIST_DIRECTORY/*.pdf . || exit 1
 
 echo "Pushing new content to $ORIGIN_URL"
 git config user.name "travisCI" || exit 1
