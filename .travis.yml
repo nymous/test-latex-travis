@@ -1,16 +1,14 @@
 before_install:
 - sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended
   texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng
-before_script:
-- chmod +x ./deploy.sh
 script:
 - mkdir build
-- pdflatex -output-directory build Statuts.tex
+- pdflatex -output-directory _build Statuts.tex
 deploy:
   provider: releases
   api_key:
     secure: O6uBWs7pZBDzy/qdzAfEaWNiDuT+xenDIZSniLDc4QSh7qylWJ8MeQmkzFv9PBotc72Kd4MR/wdHLdkzJKqKgYGpdlXReLCc5gBRnzmbd4Y4KJjBmBcjjNzCSn6RX71uKYQfTjTPlH0ZPzAU8PjoYyHJLItPvzF29rrXXx4e/Lj6ftKCRm4tyVe0ZgAAFFFpNL8MEcwu5jBaWF+UHUQyWXeFo97mvLRmTeD4cJicQk8imXjKuGMjUYnecbYfc48udH2tql9FSONtmSngSR77kk4VXV/LnkFmagpcwutE0StBOYpsQvjCWDENSqdGrVTZpGzQtXWNY9ins20dP0cf9CADWeM7r7lZT+DSjo4sk/B8RcfgfHea9gla3B83xD0+iLQJjduURcCS282UIUsNsCZCTfY8aDfLPDkA8r5HCVvmRtFQVui/Gk4oMDIvA3YHqGLhIFmly7wGVaBoY9i8N9ftVmUNU7W4cnIUBrukb/hjyYhinlzgKI0GAdp8LjIvW4LfjBgPyRfrutdkLcb3z+ItdbNGoXKNCNzki3kFAV34ug5KllFa188pOqFEonpa5/k3wQCVt8lqps1H2kA+AZ1yaCTLgz9fuperuy2cY4srpH1GHMdKACVRBoLaKxXM1v6LnyDHn/KYBm0YxbOJYLT1e+JbN2OkV5BPGc+PsP8=
-  file: Statuts.pdf
+  file: _build/Statuts.pdf
   skip_cleanup: true
   on:
     repo: tikiki/test-latex-travis
